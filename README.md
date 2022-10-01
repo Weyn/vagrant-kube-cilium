@@ -9,11 +9,24 @@ CNI - Cilium (https://docs.cilium.io/en/stable/cheatsheet/)
 
 # How to start?
 1. Install vagrant (https://www.vagrantup.com/docs/installation)
-2. Cd to repo and run:
+2. Install helm (https://helm.sh/docs/intro/install/)
+3. Cd to repo and run:
 ```
 vagrant up
 ```
-3. Profit!
+4. Profit!
+
+# Kube dashboard 
+1. Generate token:
+```
+kubectl -n kubernetes-dashboard create token admin-user
+```
+2. Start the proxy
+```
+kubectl proxy
+```
+3. Open
+http://localhost:8001/api/v1/namespaces/kubernetes-dashboard/services/https:kubernetes-dashboard:/proxy/#/login
 
 # Config
 Update Vagrantfile NUM_WORKER_NODES if you want more than 1 child node.
