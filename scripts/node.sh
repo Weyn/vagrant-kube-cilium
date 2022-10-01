@@ -16,4 +16,3 @@ sudo swapoff -a && sudo systemctl daemon-reload && sudo systemctl restart kubele
 
 NODENAME=$(hostname -s)
 kubectl label node $NODENAME node-access=ssh
-kubectl create namespace cilium

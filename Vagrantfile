@@ -1,18 +1,20 @@
 NUM_WORKER_NODES=1
-IP_NW="10.0.0."
+IP_NW="125.0.0."
 IP_START=10
 
+
 Vagrant.configure("2") do |config|
+    config.disksize.size = '15GB'
     config.vm.provision "shell", inline: <<-SHELL
         apt-get update -y
-        IP_NW="10.0.0."
+        IP_NW="125.0.0."
         IP_START=10
         echo "$IP_NW$(($IP_START)) master-node" >> /etc/hosts
     SHELL
 
     (1..NUM_WORKER_NODES).each do |i|
         config.vm.provision "shell", inline: <<-SHELL
-            IP_NW="10.0.0."
+            IP_NW="125.0.0."
             IP_START=10
             echo "$IP_NW$(($IP_START+1)) worker-node01" >> /etc/hosts
         SHELL
@@ -21,7 +23,6 @@ Vagrant.configure("2") do |config|
 
     config.vm.box = "ubuntu/focal64"
     config.vm.box_check_update = false
-    config.disksize.size = '15GB'
 
     config.vm.define "master" do |master|
       master.vm.hostname = "master-node"

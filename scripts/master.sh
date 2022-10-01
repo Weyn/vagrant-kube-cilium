@@ -1,6 +1,6 @@
 #! /bin/bash
 
-MASTER_IP="10.0.0.10"
+MASTER_IP="125.0.0.10"
 NODENAME=$(hostname -s)
 POD_CIDR="192.168.0.0/16"
 
@@ -33,8 +33,8 @@ chmod +x /vagrant/configs/join.sh
 kubeadm token create --print-join-command > /vagrant/configs/join.sh
 
 # Install Calico Network Plugin
-#curl https://docs.projectcalico.org/manifests/calico.yaml -O
-#kubectl apply -f calico.yaml
+# curl https://docs.projectcalico.org/manifests/calico.yaml -O
+# kubectl apply -f calico.yaml
 
 # Install helm (required for cilium)
 wget https://get.helm.sh/helm-v3.8.2-linux-amd64.tar.gz
@@ -45,9 +45,9 @@ kubectl label node $NODENAME node-access=ssh
 kubectl create namespace cilium
 
 # Install Cilium 
-# helm repo add cilium https://helm.cilium.io/
-# helm install cilium cilium/cilium --version 1.12.2 \
-#   --namespace cilium 
+helm repo add cilium https://helm.cilium.io/
+helm install cilium cilium/cilium --version 1.12.2 \
+  --namespace cilium 
 
 # Install Metrics Server
 kubectl apply -f https://github.com/kubernetes-sigs/metrics-server/releases/latest/download/components.yaml
