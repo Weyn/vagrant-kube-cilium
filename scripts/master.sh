@@ -45,9 +45,9 @@ kubectl label node $NODENAME node-access=ssh
 kubectl create namespace cilium
 
 # Install Cilium 
-helm repo add cilium https://helm.cilium.io/
-helm install cilium cilium/cilium --version 1.12.2 \
-  --namespace cilium 
+# helm repo add cilium https://helm.cilium.io/
+# helm install cilium cilium/cilium --version 1.12.2 \
+#   --namespace cilium 
 
 # Install Metrics Server
 kubectl apply -f https://github.com/kubernetes-sigs/metrics-server/releases/latest/download/components.yaml
