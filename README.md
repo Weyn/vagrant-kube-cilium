@@ -33,10 +33,16 @@ Update Vagrantfile NUM_WORKER_NODES if you want more than 1 child node.
 
 To change the IP update IP_NW
 
+# Cilium
+1. Install cilium client
+2. Install hubble 
+
+# Hubble UI
+
 # Future plans
 - Add ansible, puppet and more.
 
 # Quick start alternatives
 kind (https://kind.sigs.k8s.io/)
-k3s (https://k3s.io/) - My favourite due to the size and performance
+k3s (https://k3s.io/) - My favourite due to the small size and performance
 minikube (https://github.com/kubernetes/minikube) (https://minikube.sigs.k8s.io/docs/)
